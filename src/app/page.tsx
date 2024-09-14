@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function HomePage() {
   // Forces page to be dynamic and reload on database / external changes
@@ -12,7 +13,7 @@ export default function HomePage() {
   ];
 
   const heroImageMock = heroImageMockURLS.map((url, index) => ({
-    id: index + 1,
+    id: (index + 1).toString(),
     url: url,
     alt: "Hero Image",
   }));
@@ -30,8 +31,9 @@ export default function HomePage() {
       <div className="flex flex-wrap justify-center gap-4 bg-red-500">
         {[...heroImageMock, ...heroImageMock, ...heroImageMock].map((image) => (
           <div className="flex flex-col" key={image.id}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <Image src={image.url} alt={image.alt} width={300} height={300} />
+            <Link href={`/img/${image.id}`}>
+              <Image src={image.url} alt={image.alt} width={300} height={300} />
+            </Link>
           </div>
         ))}
       </div>

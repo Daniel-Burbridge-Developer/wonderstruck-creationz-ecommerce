@@ -14,6 +14,7 @@ Journey - Things to remember:
 - [ ] Uploadthing (File Hosting)
 - [ ] Ignore Build Settings for Typescript and ESlint
 - [ ] Enable Turbo Pack
+- [ ] Parralel Routes (difficult?)
 
 ---
 
