@@ -14,3 +14,12 @@ Journey - Things to remember:
 - [ ] Uploadthing (File Hosting)
 - [ ] Ignore Build Settings for Typescript and ESlint
 - [ ] Enable Turbo Pack
+
+---
+
+Investigate drizzle.
+db:push
+db:studio
+db:query
+
+import "server-only"

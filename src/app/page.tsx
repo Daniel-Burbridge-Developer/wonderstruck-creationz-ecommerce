@@ -1,5 +1,8 @@
+import Image from "next/image";
+
 export default function HomePage() {
-  // Seperate into Mock URLS and then map over to make the objects
+  // Forces page to be dynamic and reload on database / external changes
+  // export const dynamic = "forse-dynamic";
 
   const heroImageMockURLS = [
     "https://utfs.io/f/2YBx1bJMjIF3iJWVKmzQBGpKzcVxmj3r86RbUAC7hZodw0uH",
@@ -15,8 +18,8 @@ export default function HomePage() {
   }));
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
-      <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16">
+    <main className="flex flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
+      <div className="container flex min-h-screen flex-col items-center justify-center gap-12 px-4 py-16">
         <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-[5rem]">
           <span className="text-[hsl(280,100%,70%)]">
             Wonderstruck Creationz
@@ -24,15 +27,11 @@ export default function HomePage() {
         </h1>
       </div>
 
-      <div className="flex flex-wrap justify-center gap-4">
+      <div className="flex flex-wrap justify-center gap-4 bg-red-500">
         {[...heroImageMock, ...heroImageMock, ...heroImageMock].map((image) => (
-          <div key={image.id}>
+          <div className="flex flex-col" key={image.id}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={image.url}
-              alt={image.alt}
-              className="h-72 w-72 rounded-lg object-cover shadow-lg"
-            />
+            <Image src={image.url} alt={image.alt} width={300} height={300} />
           </div>
         ))}
       </div>
