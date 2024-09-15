@@ -51,7 +51,7 @@ export default function HeroCarouselComponent({
       <div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-40 p-4 text-white">
         <div className="h-1/2 w-1"></div>
         <h1 className="mb-4 text-center text-2xl font-bold sm:text-3xl md:text-4xl lg:text-5xl">
-          Discover Our Refreshing Collection
+          Embrace The Wonder In Your Life
         </h1>
         <Button size="lg" className="text-sm sm:text-base">
           Shop All

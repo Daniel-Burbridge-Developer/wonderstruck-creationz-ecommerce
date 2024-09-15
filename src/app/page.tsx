@@ -1,5 +1,4 @@
 import HeroCarouselComponent from "@/components/hero-carousel";
-import { db } from "@/server/db";
 import { getHeroImages } from "@/server/queries";
 import Image from "next/image";
 // import Link from "next/link";
