@@ -45,7 +45,7 @@ export default function HeroCarouselComponent({
   }, [currentIndex]);
 
   return (
-    <div className="relative aspect-[21/9] max-h-[90vh] w-full overflow-hidden">
+    <div className="absolute inset-0 w-full h-full overflow-hidden">
       {images.map((image, index) => (
         <div
           key={index}

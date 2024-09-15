@@ -11,10 +11,12 @@ export default async function HomePage() {
 
   return (
     <main className="flex flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
+      <div className="relative w-full h-[calc(100vh-0px)]">
       <HeroCarouselComponent images={heroImages} />
+      </div>
       {/* render some hero images for testing */}
-      <div className="flex flex-col">
-        {heroImages.map((image) => (
+      <div className="relative flex flex-col overflow-auto">
+        {[...heroImages, ...heroImages, ...heroImages, ...heroImages].map((image) => (
           <div key={image.id} className="relative aspect-square w-72">
             <Link href={`/img/${image.id}`}>
               <Image

@@ -1,6 +1,6 @@
 import "@/styles/globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
-import TopNav from "./_components/topnav";
+import { TopNavComponent } from "@/components/top-nav";
 
 import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
@@ -25,7 +25,7 @@ export default function RootLayout({
       <html lang="en" className={`${GeistSans.variable}`}>
         <body>
           <div className="grid-rows-[auto, 1fr] grid h-screen">
-            <TopNav />
+            <TopNavComponent />
             <main className="overflow-y-scroll">{children}</main>
           </div>
           {modal}
