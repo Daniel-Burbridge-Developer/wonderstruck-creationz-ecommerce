@@ -5,18 +5,23 @@ import { useEffect, useState } from "react";
 const Disclaimer = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  // Check if the referrer is external
   useEffect(() => {
+    // Check if the disclaimer was already shown in the current session
+    const hasSeenDisclaimer = sessionStorage.getItem("hasSeenDisclaimer");
+
+    // Check if the referrer is external
     const isExternalReferrer =
       document.referrer && new URL(document.referrer).hostname !== window.location.hostname;
 
-    if (isExternalReferrer  || !document.referrer) {
+    // Show the disclaimer if it's the user's first visit of the session or if coming from an external URL
+    if (!hasSeenDisclaimer && (isExternalReferrer || !document.referrer)) {
       setIsOpen(true);
     }
   }, []);
 
   // Handle dismissing the disclaimer
   const handleDismiss = () => {
+    sessionStorage.setItem("hasSeenDisclaimer", "true");
     setIsOpen(false);
   };
 
