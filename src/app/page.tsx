@@ -1,7 +1,7 @@
 import HeroCarouselComponent from "@/components/hero-carousel";
 import { getHeroImages } from "@/server/queries";
 import Image from "next/image";
-// import Link from "next/link";
+import Link from "next/link";
 
 export default async function HomePage() {
   // Forces page to be dynamic and reload on database / external changes
@@ -16,12 +16,14 @@ export default async function HomePage() {
       <div className="flex flex-col">
         {heroImages.map((image) => (
           <div key={image.id} className="relative aspect-square w-72">
-            <Image
-              src={image.url}
-              alt={image.name}
-              layout="fill"
-              objectFit="cover"
-            />
+            <Link href={`/img/${image.id}`}>
+              <Image
+                src={image.url}
+                alt={image.name}
+                layout="fill"
+                objectFit="cover"
+              />
+            </Link>
           </div>
         ))}
       </div>

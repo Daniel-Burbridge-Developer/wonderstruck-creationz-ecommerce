@@ -14,6 +14,15 @@ export default function HeroCarouselComponent({
   images: heroImage[];
 }) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [intervalId, setIntervalId] = useState<NodeJS.Timeout | null>(null);
+
+  const resetTimer = () => {
+    if (intervalId) {
+      clearInterval(intervalId);
+    }
+    const newIntervalId = setInterval(nextSlide, 5000);
+    setIntervalId(newIntervalId);
+  };
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
@@ -27,8 +36,13 @@ export default function HeroCarouselComponent({
 
   useEffect(() => {
     const timer = setInterval(nextSlide, 5000);
+    setIntervalId(timer);
     return () => clearInterval(timer);
   }, []);
+
+  useEffect(() => {
+    resetTimer();
+  }, [currentIndex]);
 
   return (
     <div className="relative aspect-[21/9] max-h-[90vh] w-full overflow-hidden">
@@ -64,21 +78,30 @@ export default function HeroCarouselComponent({
             className={`h-1.5 w-1.5 rounded-full sm:h-2 sm:w-2 ${
               index === currentIndex ? "bg-white" : "bg-white/50"
             }`}
-            onClick={() => setCurrentIndex(index)}
+            onClick={() => {
+              setCurrentIndex(index);
+              resetTimer();
+            }}
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}
       </div>
       <button
         className="absolute bottom-4 left-2 -translate-y-1/2 transform rounded-full bg-black/30 p-1 text-white sm:left-4 sm:p-2"
-        onClick={prevSlide}
+        onClick={() => {
+          prevSlide();
+          resetTimer();
+        }}
         aria-label="Previous slide"
       >
         <ChevronLeft size={16} className="sm:h-6 sm:w-6" />
       </button>
       <button
         className="absolute bottom-4 right-2 -translate-y-1/2 transform rounded-full bg-black/30 p-1 text-white sm:right-4 sm:p-2"
-        onClick={nextSlide}
+        onClick={() => {
+          nextSlide();
+          resetTimer();
+        }}
         aria-label="Next slide"
       >
         <ChevronRight size={16} className="sm:h-6 sm:w-6" />
