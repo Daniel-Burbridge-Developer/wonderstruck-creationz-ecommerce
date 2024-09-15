@@ -1,5 +1,6 @@
 import { getHeroImage } from "@/server/queries";
 import Image from "next/image";
+import { Modal } from "../../modal";
 
 export default async function PhotoModal({
   params: { id: photoId },
@@ -17,9 +18,5 @@ export default async function PhotoModal({
 
   const image = await getHeroImage(idAsNumber);
 
-  return (
-    <div>
-      <Image src={image.url} alt={image.name} width={64} height={64} />
-    </div>
-  );
+  return <Modal>Hello World</Modal>;
 }
