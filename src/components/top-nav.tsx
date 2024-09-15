@@ -45,7 +45,7 @@ export function TopNavComponent() {
         <div className="flex justify-between items-center h-full">
           <div className="flex-shrink-0 flex items-center">
             <Link href="/" className="text-xl font-bold text-white">
-              E-Shop
+              Wonderstruck Creationz
             </Link>
           </div>
           
