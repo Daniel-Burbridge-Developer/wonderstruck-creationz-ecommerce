@@ -1,3 +1,6 @@
+import CustomerReviewsComponent from "@/components/customer-reviews";
+import { ExpandableFooterComponent } from "@/components/expandable-footer";
+import FooterComponent from "@/components/footer";
 import HeroCarouselComponent from "@/components/hero-carousel";
 import { getHeroImages } from "@/server/queries";
 import Image from "next/image";
@@ -28,6 +31,12 @@ export default async function HomePage() {
             </Link>
           </div>
         ))}
+      </div>
+      <div className="relative flex flex-col w-full">
+        <CustomerReviewsComponent />
+      </div>
+      <div className="relative flex flex-col w-full">
+        <ExpandableFooterComponent />
       </div>
     </main>
   );

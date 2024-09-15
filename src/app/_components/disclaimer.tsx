@@ -34,7 +34,7 @@ const Disclaimer = () => {
       ✨ <span>IMPORTANT NOTICE</span> ✨
     </h2>
     <div className="flex flex-col text-lg text-white mb-6 py-4">
-      <div><p>These items are not real products.</p></div><br/><div><p>This website serves as a portfolio piece to showcase and enhance my skills as a web developer & designer. While I reserve the right to use this platform for a real shop in the future.</p></div><br/><div><p>I apologize for any confusion. No purchases will be shipped.</p></div>
+      <div><p>These items are <span className="text-red-600 font-extrabold">not real products</span>.</p></div><br/><div><p>This website serves as a portfolio piece to showcase and enhance my skills as a web developer & designer. While I reserve the right to use this platform for a real shop in the future.</p></div><br/><div><p>I apologize for any confusion. <span className="text-red-600 font-extrabold">No purchases will be shipped.</span></p></div>
     </div>
     <button
       onClick={handleDismiss}
