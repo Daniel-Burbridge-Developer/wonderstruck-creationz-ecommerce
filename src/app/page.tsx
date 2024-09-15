@@ -10,7 +10,7 @@ export default async function HomePage() {
   const heroImages = await getHeroImages();
 
   return (
-    <main className="flex flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
+    <main className="flex flex-col items-center justify-center">
       <div className="relative w-full h-[calc(100vh-0px)]">
       <HeroCarouselComponent images={heroImages} />
       </div>
