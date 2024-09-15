@@ -4,24 +4,15 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-// import { getHeroImages } from "@/server/queries";
+import type { heroImages } from "@/server/db/schema";
 
-const images = [
-  {
-    name: "Hero Image 1",
-    url: "https://utfs.io/f/2YBx1bJMjIF3iJWVKmzQBGpKzcVxmj3r86RbUAC7hZodw0uH",
-  },
-  {
-    name: "Hero Image 2",
-    url: "https://utfs.io/f/2YBx1bJMjIF30G1W1uj7LSntRJoGbXBaFEk3WlsqCp8erVcY",
-  },
-  {
-    name: "Hero Image 3",
-    url: "https://utfs.io/f/2YBx1bJMjIF3g12QjWXViMPyThw2NpCoszadRE3L5b8B7KGY",
-  },
-];
+export type heroImage = typeof heroImages.$inferSelect;
 
-export default function HeroCarouselComponent() {
+export default function HeroCarouselComponent({
+  images,
+}: {
+  images: heroImage[];
+}) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const nextSlide = () => {
@@ -51,8 +42,8 @@ export default function HeroCarouselComponent() {
           <Image
             src={image.url}
             alt={image.name}
-            layout="fill"
-            objectFit="cover"
+            fill
+            style={{ objectFit: "cover" }}
             priority={index === 0}
           />
         </div>
