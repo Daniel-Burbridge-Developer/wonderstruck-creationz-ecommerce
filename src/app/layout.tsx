@@ -5,6 +5,9 @@ import { TopNavComponent } from "@/components/top-nav";
 import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
 
+// Remove once out of testing and the site is a functional shop
+import Disclaimer from "./_components/disclaimer";
+
 export const metadata: Metadata = {
   title: "Wonderstruck Creationz",
   description: "Bringing Wonder to with our Creations",
@@ -26,6 +29,8 @@ export default function RootLayout({
         <body className="dark">
           <div className="grid-rows-[auto, 1fr] grid h-screen">
             <TopNavComponent />
+            {/* Remove once out of testing and the site is a functional shop*/}
+            <Disclaimer />
             <main className="overflow-y-scroll">{children}</main>
           </div>
           {modal}
