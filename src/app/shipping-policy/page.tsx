@@ -11,20 +11,6 @@ const ShippingPolicyPage = () => {
           <p className="mt-4 text-xl">
             Fast, efficient, and magical shipping to your doorstep.
           </p>
-          <p className="mt-4">
-            Wonderstruck Creationz is committed to providing reliable and timely
-            shipping. We ship both domestically and internationally, with
-            tracking provided for every order.
-          </p>
-          <p className="mt-4">
-            Shipping times vary depending on your location, but you can expect
-            your magical goods within 5-10 business days domestically and 10-20
-            business days for international orders.
-          </p>
-          <p className="mt-4">
-            Please allow 1-2 business days for processing. We will notify you
-            via email once your order has been dispatched.
-          </p>
         </div>
 
         {/* Image Section */}
@@ -57,17 +43,14 @@ const ShippingPolicyPage = () => {
 
         <h2 className="text-2xl font-semibold">International Shipping</h2>
         <p>
-          We currently ship to select international countries. Shipping times
-          vary by destination, typically ranging from 10-20 business days.
-          Additional customs fees or taxes may apply for international orders,
-          which are the responsibility of the customer.
+          We currently do not support international shipping. We apologize for the inconvenience and hope to offer this service in the future.
         </p>
 
         <h2 className="text-2xl font-semibold">Shipping Costs</h2>
         <p>
           Shipping costs are calculated at checkout based on your location and
-          the weight of your order. Orders over $100 are eligible for free
-          standard shipping within the U.S.
+          the weight of your order. Orders over $200 are eligible for free
+          standard shipping within Australia
         </p>
 
         <h2 className="text-2xl font-semibold">Tracking and Notifications</h2>

@@ -11,15 +11,6 @@ const RefundPolicyPage = () => {
           <p className="mt-4 text-xl">
             We ensure customer satisfaction with a magical touch.
           </p>
-          <p className="mt-4">
-            If you're not satisfied with your purchase, we're here to help. Our
-            refund process is simple and smooth, ensuring that you're always
-            happy with your experience at Wonderstruck Creationz.
-          </p>
-          <p className="mt-4">
-            Please contact our support team within 30 days of receiving your
-            order for assistance with returns, exchanges, and refunds.
-          </p>
         </div>
 
         {/* Image Section */}

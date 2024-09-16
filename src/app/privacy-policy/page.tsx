@@ -12,15 +12,6 @@ const PrivacyPolicyPage = () => {
             We value your privacy in this magical world. Your data is protected
             by our strict security measures.
           </p>
-          <p className="mt-4">
-            Wonderstruck Creationz collects personal data that is essential to
-            providing you with our products and services, including your name,
-            email, shipping address, and payment information.
-          </p>
-          <p className="mt-4">
-            We ensure your information is safe and secure with encryption and
-            third-party providers adhering to the highest standards.
-          </p>
         </div>
 
         {/* Image Section */}

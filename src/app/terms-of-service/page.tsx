@@ -11,21 +11,6 @@ const TermsOfServicePage = () => {
           <p className="mt-4 text-xl">
             The magical rules and guidelines for our community.
           </p>
-          <p className="mt-4">
-            By accessing or using our website, you agree to be bound by these
-            Terms of Service. If you do not agree with any part of the terms,
-            you are prohibited from using the site.
-          </p>
-          <p className="mt-4">
-            We reserve the right to modify or replace these terms at any time.
-            Your continued use of the site following any changes constitutes
-            acceptance of the new terms.
-          </p>
-          <p className="mt-4">
-            All content on this site, including images, graphics, and text, is
-            the intellectual property of Wonderstruck Creationz or its
-            licensors. Unauthorized use of our content is strictly prohibited.
-          </p>
         </div>
 
         {/* Image Section */}
