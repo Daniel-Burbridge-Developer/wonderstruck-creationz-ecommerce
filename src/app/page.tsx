@@ -1,5 +1,4 @@
 import CustomerReviewsComponent from "@/components/customer-reviews";
-import { ExpandableFooterComponent } from "@/components/expandable-footer";
 import HeroCarouselComponent from "@/components/hero-carousel";
 import { getHeroImages } from "@/server/queries";
 import ProductShowcase from "@/app/_components/product-showcase";
@@ -21,9 +20,6 @@ export default async function HomePage() {
       </div>
       <div className="relative flex w-full flex-col">
         <CustomerReviewsComponent />
-      </div>
-      <div className="relative flex w-full flex-col">
-        <ExpandableFooterComponent />
       </div>
     </main>
   );

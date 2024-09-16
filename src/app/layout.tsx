@@ -1,6 +1,7 @@
 import "@/styles/globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { TopNavComponent } from "@/components/top-nav";
+import { ExpandableFooterComponent } from "@/components/expandable-footer";
 
 import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
@@ -31,7 +32,11 @@ export default function RootLayout({
             <TopNavComponent />
             {/* Remove once out of testing and the site is a functional shop*/}
             <Disclaimer />
-            <main className="overflow-y-scroll">{children}</main>
+            <main className="overflow-y-scroll">{children}
+              <div className="relative flex w-full flex-col">
+              <ExpandableFooterComponent />
+              </div>
+            </main>
           </div>
           {modal}
           <div id="modal-root" />
