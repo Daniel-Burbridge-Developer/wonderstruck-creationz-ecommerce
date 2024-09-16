@@ -19,19 +19,22 @@ export function ProductItem({
   const imageOrder = imageOnLeft ? "order-1" : "order-2";
 
   return (
-    <div className="flex flex-col items-center gap-6 py-8 md:flex-row">
-      <div className={`w-full md:w-1/2 ${contentOrder}`}>
-        <h2 className="mb-4 text-2xl font-bold">{title}</h2>
-        <p className="text-muted-foreground">{description}</p>
+    <div className="flex flex-col items-center gap-8 p-8 md:flex-row md:p-12">
+      <div className={`w-full md:w-1/2 ${contentOrder} space-y-4`}>
+        <h2 className="text-3xl font-bold text-white">{title}</h2>
+        <p className="leading-relaxed text-gray-300">{description}</p>
       </div>
       <div className={`w-full md:w-1/2 ${imageOrder}`}>
-        <Image
-          src={imageUrl}
-          alt={imageAlt}
-          width={500}
-          height={300}
-          className="h-[300px] w-full rounded-lg object-cover"
-        />
+        <div className="group relative">
+          <div className="absolute -inset-1 rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 opacity-25 blur transition duration-1000 group-hover:opacity-100 group-hover:duration-200"></div>
+          <Image
+            src={imageUrl}
+            alt={imageAlt}
+            width={500}
+            height={300}
+            className="relative h-[300px] w-full rounded-lg object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+        </div>
       </div>
     </div>
   );
