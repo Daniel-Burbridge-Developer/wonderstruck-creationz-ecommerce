@@ -1,67 +1,99 @@
-'use client'
+"use client";
 
-import { useState, useEffect } from 'react'
-import Link from 'next/link'
-import { SignInButton, UserButton, useUser } from '@clerk/nextjs'
-import { Menu, X, ShoppingCart } from 'lucide-react'
-import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
-import { Badge } from "@/components/ui/badge"
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { SignInButton, UserButton, useUser } from "@clerk/nextjs";
+import { Menu, X, ShoppingCart } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import { Badge } from "@/components/ui/badge";
 
 // Example cart items
 const cartItems = [
   { id: 1, name: "Product 1", price: 19.99 },
   { id: 2, name: "Product 2", price: 29.99 },
-]
+];
 
 export function TopNavComponent() {
-  const { isSignedIn } = useUser()
-  const [scrolled, setScrolled] = useState(false)
+  const { isSignedIn } = useUser();
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     // Get the main element for scrolling
-    const mainElement = document.querySelector('main')
+    const mainElement = document.querySelector("main");
 
     const handleScroll = () => {
       if (mainElement && mainElement.scrollTop > 500) {
-        setScrolled(true)
+        setScrolled(true);
       } else {
-        setScrolled(false)
+        setScrolled(false);
       }
-    }
+    };
 
     // Attach scroll listener to main element
-    mainElement?.addEventListener('scroll', handleScroll, { passive: true })
+    mainElement?.addEventListener("scroll", handleScroll, { passive: true });
 
     // Cleanup on unmount
     return () => {
-      mainElement?.removeEventListener('scroll', handleScroll)
-    }
-  }, [])
+      mainElement?.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
-    <nav className={`fixed w-full z-10 transition-all duration-1000 ease-in-out ${scrolled ? 'bg-black' : 'bg-transparent'} h-16`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
-        <div className="flex justify-between items-center h-full">
-          <div className="flex-shrink-0 flex items-center">
+    <nav
+      className={`fixed z-10 w-full transition-all duration-1000 ease-in-out ${scrolled ? "bg-black" : "bg-transparent"} h-16`}
+    >
+      <div className="mx-auto h-full max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex h-full items-center justify-between">
+          <div className="flex flex-shrink-0 items-center">
             <Link href="/" className="text-xl font-bold text-white">
               Wonderstruck Creationz
             </Link>
           </div>
-          
-          <div className="hidden sm:flex sm:space-x-8 items-center">
-            <Link href="/" className="text-white hover:text-gray-300 transition-colors">Home</Link>
-            <Link href="/products" className="text-white hover:text-gray-300 transition-colors">Products</Link>
-            <Link href="/about" className="text-white hover:text-gray-300 transition-colors">About</Link>
-            <Link href="/contact" className="text-white hover:text-gray-300 transition-colors">Contact</Link>
+
+          <div className="hidden items-center sm:flex sm:space-x-8">
+            <Link
+              href="/"
+              className="text-white transition-colors hover:text-gray-300"
+            >
+              Home
+            </Link>
+            <Link
+              href="/products"
+              className="text-white transition-colors hover:text-gray-300"
+            >
+              Products
+            </Link>
+            <Link
+              href="/about"
+              className="text-white transition-colors hover:text-gray-300"
+            >
+              About
+            </Link>
+            <Link
+              href="/contact"
+              className="text-white transition-colors hover:text-gray-300"
+            >
+              Contact
+            </Link>
           </div>
 
-          <div className="hidden sm:flex items-center space-x-4">
+          <div className="hidden items-center space-x-4 sm:flex">
             <Sheet>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon" className="relative">
                   <ShoppingCart className="text-white" />
-                  <Badge className="absolute -top-2 -right-2 px-2 py-1" variant="destructive">
+                  <Badge
+                    className="absolute -right-2 -top-2 px-2 py-1"
+                    variant="destructive"
+                  >
                     {cartItems.length}
                   </Badge>
                   <span className="sr-only">Open cart</span>
@@ -70,19 +102,29 @@ export function TopNavComponent() {
               <SheetContent>
                 <SheetHeader>
                   <SheetTitle>Your Cart</SheetTitle>
-                  <SheetDescription>You have {cartItems.length} item(s) in your cart</SheetDescription>
+                  <SheetDescription>
+                    You have {cartItems.length} item(s) in your cart
+                  </SheetDescription>
                 </SheetHeader>
                 <div className="mt-4 space-y-4">
                   {cartItems.map((item) => (
-                    <div key={item.id} className="flex justify-between items-center">
+                    <div
+                      key={item.id}
+                      className="flex items-center justify-between"
+                    >
                       <span>{item.name}</span>
                       <span>${item.price.toFixed(2)}</span>
                     </div>
                   ))}
-                  <div className="pt-4 border-t">
-                    <div className="flex justify-between items-center font-bold">
+                  <div className="border-t pt-4">
+                    <div className="flex items-center justify-between font-bold">
                       <span>Total</span>
-                      <span>${cartItems.reduce((sum, item) => sum + item.price, 0).toFixed(2)}</span>
+                      <span>
+                        $
+                        {cartItems
+                          .reduce((sum, item) => sum + item.price, 0)
+                          .toFixed(2)}
+                      </span>
                     </div>
                   </div>
                   <Button className="w-full">Checkout</Button>
@@ -98,21 +140,22 @@ export function TopNavComponent() {
               </SignInButton>
             )}
           </div>
-          
-          <div className="sm:hidden flex items-center space-x-4">
+
+          <div className="flex items-center space-x-4 sm:hidden">
             <Sheet>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon" className="relative">
                   <ShoppingCart className="text-white" />
-                  <Badge className="absolute -top-2 -right-2 px-2 py-1" variant="destructive">
+                  <Badge
+                    className="absolute -right-2 -top-2 px-2 py-1"
+                    variant="destructive"
+                  >
                     {cartItems.length}
                   </Badge>
                   <span className="sr-only">Open cart</span>
                 </Button>
               </SheetTrigger>
-              <SheetContent>
-                {/* Cart content */}
-              </SheetContent>
+              <SheetContent>{/* Cart content */}</SheetContent>
             </Sheet>
             <button className="text-white">
               <Menu size={24} />
@@ -121,5 +164,5 @@ export function TopNavComponent() {
         </div>
       </div>
     </nav>
-  )
+  );
 }

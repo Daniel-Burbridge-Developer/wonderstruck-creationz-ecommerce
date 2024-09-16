@@ -32,9 +32,10 @@ export default function RootLayout({
             <TopNavComponent />
             {/* Remove once out of testing and the site is a functional shop*/}
             <Disclaimer />
-            <main className="overflow-y-scroll">{children}
+            <main className="overflow-y-scroll">
+              {children}
               <div className="relative flex w-full flex-col">
-              <ExpandableFooterComponent />
+                <ExpandableFooterComponent />
               </div>
             </main>
           </div>
