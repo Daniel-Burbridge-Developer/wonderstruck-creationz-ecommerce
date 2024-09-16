@@ -32,7 +32,7 @@ const products = [
     id: "4",
     title: "Accessories",
     description:
-      "Complete your look with our Accessories collection! From stylish bags to unique jewelry, we offer the perfect finishing touches to elevate any outfit. Whether you're looking for a bold statement piece or a subtle accent, our accessories are designed to add flair and personality to your style.",
+      "Discover our Accessories collection, where you'll find practical yet stylish essentials like pens, keychains, and more. Perfect for adding a touch of personality to your everyday items or finding a thoughtful gift, our accessories combine functionality with flair. Explore our selection to find the perfect addition to your daily routine",
     imageUrl:
       "https://utfs.io/f/2YBx1bJMjIF37McMz29NBAMeLr3c4HRm5oXpzOGtDs8bjFYT",
     imageAlt: "Image 4",
