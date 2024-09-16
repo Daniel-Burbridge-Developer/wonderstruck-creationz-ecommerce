@@ -39,7 +39,7 @@ const products = [
   },
   {
     id: "5",
-    title: "Fragrences",
+    title: "Fragrances",
     description:
       "Awaken your senses with our Fragrances collection! From fresh, uplifting scents to warm, soothing aromas, our selection of perfumes and essential oils is crafted to complement your unique style. Find your signature scent and make every moment memorable.",
     imageUrl:
