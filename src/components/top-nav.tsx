@@ -60,10 +60,10 @@ export function TopNavComponent() {
 
           <div className="hidden items-center sm:flex sm:space-x-8">
             <Link
-              href="/"
+              href="/events"
               className="text-white transition-colors hover:text-gray-300"
             >
-              Home
+              Events
             </Link>
             <Link
               href="/products"
@@ -72,7 +72,7 @@ export function TopNavComponent() {
               Products
             </Link>
             <Link
-              href="/about"
+              href="/aboutus"
               className="text-white transition-colors hover:text-gray-300"
             >
               About
