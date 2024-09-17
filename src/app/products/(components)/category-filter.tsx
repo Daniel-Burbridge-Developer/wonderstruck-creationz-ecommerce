@@ -19,7 +19,7 @@ export default function CategoryFilter() {
   );
 
   const handleCategoryClick = (category: string) => {
-    router.push(`/search?${createQueryString("category", category)}`, {
+    router.push(`/products?${createQueryString("category", category)}`, {
       scroll: false,
     });
   };

@@ -20,7 +20,7 @@ export default function SearchBar() {
 
   const debouncedSearch = useCallback(
     debounce((value: string) => {
-      router.push(`/search?${createQueryString("query", value)}`, {
+      router.push(`/products?${createQueryString("query", value)}`, {
         scroll: false,
       });
     }, 300),
@@ -41,7 +41,7 @@ export default function SearchBar() {
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    router.push(`/search?${createQueryString("query", query)}`, {
+    router.push(`/products?${createQueryString("query", query)}`, {
       scroll: false,
     });
   };
