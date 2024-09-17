@@ -25,7 +25,7 @@ const reviews = [
     rating: 5,
     comment: "Purrfectly delightful! Made me grin from ear to ear.",
     avatar:
-      "https://utfs.io/f/2YBx1bJMjIF3JJZuBjOQwpSOsE8M21AK4LYCGflzFgHPibIa",
+      "https://utfs.io/f/2YBx1bJMjIF3aYjGT4oH2Ai3lg8U7yhtLY5rCS1DJpuV6njR",
   },
 ];
 
