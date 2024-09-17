@@ -2,8 +2,22 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { Skeleton } from "@/components/ui/skeleton";
 
-export default function ProductGrid({ products }) {
+interface Product {
+  id: number;
+  name: string;
+  category: string;
+  subcategory: string;
+  price: number;
+  image: string;
+}
+
+interface ProductGridProps {
+  products: Product[];
+}
+
+export default function ProductGrid({ products }: ProductGridProps) {
   return (
     <div className="grid flex-grow grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
       {products.map((product) => (
@@ -17,6 +31,7 @@ export default function ProductGrid({ products }) {
             width={200}
             height={200}
             className="h-48 w-full object-cover"
+            loading="lazy"
           />
           <div className="p-4">
             <h3 className="mb-2 text-xl font-semibold">{product.name}</h3>
@@ -34,6 +49,17 @@ export default function ProductGrid({ products }) {
             </div>
           </div>
         </div>
+      ))}
+      {products.length === 0 && (
+        <div className="col-span-full text-center text-gray-400">
+          No products found.
+        </div>
+      )}
+      {[...Array(3)].map((_, index) => (
+        <Skeleton
+          key={`skeleton-${index}`}
+          className="h-[350px] w-full rounded-lg bg-blue-900 bg-opacity-50"
+        />
       ))}
     </div>
   );

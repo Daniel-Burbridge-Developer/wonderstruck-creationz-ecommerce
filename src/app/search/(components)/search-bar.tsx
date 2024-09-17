@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
+import { debounce } from "lodash";
 
 export default function SearchBar() {
   const router = useRouter();
@@ -17,17 +18,30 @@ export default function SearchBar() {
     [searchParams],
   );
 
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    router.push(`/search?${createQueryString("query", query)}`, {
-      scroll: false,
-    });
-  };
+  const debouncedSearch = useCallback(
+    debounce((value: string) => {
+      router.push(`/search?${createQueryString("query", value)}`, {
+        scroll: false,
+      });
+    }, 300),
+    [router, createQueryString],
+  );
+
+  useEffect(() => {
+    return () => {
+      debouncedSearch.cancel();
+    };
+  }, [debouncedSearch]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newQuery = e.target.value;
     setQuery(newQuery);
-    router.push(`/search?${createQueryString("query", newQuery)}`, {
+    debouncedSearch(newQuery);
+  };
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    router.push(`/search?${createQueryString("query", query)}`, {
       scroll: false,
     });
   };
