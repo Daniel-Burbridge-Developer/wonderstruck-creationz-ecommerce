@@ -35,5 +35,5 @@ function PostHogAuthWrapper({ children }: { children: React.ReactNode }) {
     }
   }, [auth, userInfo]);
 
-  return <>{children} </>;
+  return <>{children}</>;
 }
