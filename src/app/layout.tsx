@@ -2,6 +2,7 @@ import "@/styles/globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { TopNavComponent } from "@/components/top-nav";
 import { ExpandableFooterComponent } from "@/components/expandable-footer";
+import { CSPostHogProvider } from "src/app/_analytics/provider";
 
 import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
@@ -20,29 +21,32 @@ interface RootLayoutProps {
   modal: React.ReactNode;
 }
 
+// posthog.capture('my event', { property: 'value' }) // Capture a custom event with posthog
 export default function RootLayout({
   children,
   modal,
 }: Readonly<RootLayoutProps>) {
   return (
     <ClerkProvider>
-      <html lang="en" className={`${GeistSans.variable}`}>
-        <body className="dark">
-          <div className="grid-rows-[auto, 1fr] grid h-screen">
-            <TopNavComponent />
-            {/* Remove once out of testing and the site is a functional shop*/}
-            <Disclaimer />
-            <main className="overflow-y-scroll">
-              {children}
-              <div className="relative flex w-full flex-col">
-                <ExpandableFooterComponent />
-              </div>
-            </main>
-          </div>
-          {modal}
-          <div id="modal-root" />
-        </body>
-      </html>
+      <CSPostHogProvider>
+        <html lang="en" className={`${GeistSans.variable}`}>
+          <body className="dark">
+            <div className="grid-rows-[auto, 1fr] grid h-screen">
+              <TopNavComponent />
+              {/* Remove once out of testing and the site is a functional shop*/}
+              <Disclaimer />
+              <main className="overflow-y-scroll">
+                {children}
+                <div className="relative flex w-full flex-col">
+                  <ExpandableFooterComponent />
+                </div>
+              </main>
+            </div>
+            {modal}
+            <div id="modal-root" />
+          </body>
+        </html>
+      </CSPostHogProvider>
     </ClerkProvider>
   );
 }
