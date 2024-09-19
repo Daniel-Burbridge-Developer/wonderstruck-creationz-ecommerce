@@ -5,6 +5,7 @@ import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { heroImages } from "@/server/db/schema";
+import Link from "next/link";
 
 export type heroImage = typeof heroImages.$inferSelect;
 
@@ -67,9 +68,11 @@ export default function HeroCarouselComponent({
         <h1 className="mb-4 text-center text-2xl font-bold sm:text-3xl md:text-4xl lg:text-5xl">
           Embrace The Wonder In Your Life
         </h1>
-        <Button size="lg" className="text-sm sm:text-base">
-          Shop All
-        </Button>
+        <Link href="/products">
+          <Button size="lg" className="text-sm sm:text-base">
+            Shop All
+          </Button>
+        </Link>
       </div>
       <div className="absolute bottom-2 left-0 right-0 flex justify-center space-x-2 sm:bottom-4">
         {images.map((_, index) => (

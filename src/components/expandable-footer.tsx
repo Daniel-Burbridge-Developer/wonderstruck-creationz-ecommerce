@@ -128,11 +128,6 @@ export function ExpandableFooterComponent() {
                     FAQ
                   </Link>
                 </li>
-                <li>
-                  <Link href="/order-tracking" className="hover:underline">
-                    Order Tracking
-                  </Link>
-                </li>
               </ul>
             </div>
             <div className="space-y-4">
