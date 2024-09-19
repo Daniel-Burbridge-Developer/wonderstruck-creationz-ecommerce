@@ -14,7 +14,7 @@ const RefundPolicyPage = () => {
         </div>
 
         {/* Image Section */}
-        <div className="w-1/2 mt-8">
+        <div className="mt-8 w-1/2">
           <Image
             src="https://utfs.io/f/2YBx1bJMjIF3gMbtmPViMPyThw2NpCoszadRE3L5b8B7KGYZ"
             alt="Magical refund process"

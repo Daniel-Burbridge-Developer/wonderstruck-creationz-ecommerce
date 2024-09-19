@@ -133,7 +133,12 @@ export function TopNavComponent() {
             </Sheet>
 
             {isSignedIn ? (
-              <UserButton />
+              <div>
+                <UserButton />
+                <Link href="/admin-dashboard" className="text-white">
+                       Admin Dashboard
+                </Link>
+              </div>
             ) : (
               <SignInButton mode="modal">
                 <Button variant="secondary">Sign In</Button>

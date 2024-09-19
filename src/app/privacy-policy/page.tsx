@@ -15,7 +15,7 @@ const PrivacyPolicyPage = () => {
         </div>
 
         {/* Image Section */}
-        <div className="w-1/2 mt-8">
+        <div className="mt-8 w-1/2">
           <Image
             src="https://utfs.io/f/2YBx1bJMjIF3PVJurp33wDumv68AKCBqGXQ2tRecV9Fzjkh4"
             alt="Magical privacy protection"

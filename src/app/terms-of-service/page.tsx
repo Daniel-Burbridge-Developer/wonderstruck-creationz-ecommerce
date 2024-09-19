@@ -14,7 +14,7 @@ const TermsOfServicePage = () => {
         </div>
 
         {/* Image Section */}
-        <div className="w-1/2 mt-8">
+        <div className="mt-8 w-1/2">
           <Image
             src="https://utfs.io/f/2YBx1bJMjIF3lpUCdcNNuVfXZ3weCGhtjiUPR8xvAT9I1zan"
             alt="Magical terms of service"
