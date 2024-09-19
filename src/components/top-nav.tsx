@@ -22,7 +22,7 @@ const cartItems = [
 ];
 
 export function TopNavComponent() {
-  const { isSignedIn } = useUser();
+  const { isSignedIn, user } = useUser();
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -132,14 +132,14 @@ export function TopNavComponent() {
               </SheetContent>
             </Sheet>
 
-            {isSignedIn ? (
-              <div>
+            {isSignedIn ? user.publicMetadata.role === "admin" ? (
+              <div className="flex gap-4">
                 <UserButton />
                 <Link href="/admin-dashboard" className="text-white">
                        Admin Dashboard
                 </Link>
               </div>
-            ) : (
+            ) : (<UserButton /> ): (
               <SignInButton mode="modal">
                 <Button variant="secondary">Sign In</Button>
               </SignInButton>
