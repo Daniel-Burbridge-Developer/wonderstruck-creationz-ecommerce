@@ -14,7 +14,7 @@ const reviews = [
   {
     id: 2,
     name: "Mad Hatter",
-    rating: 4,
+    rating: 5,
     comment: "Tea-riffic experience! Almost as mad as my parties.",
     avatar:
       "https://utfs.io/f/2YBx1bJMjIF3NU79Kdt2Qa7WV4HtJzMx8GjsZ0qFfI5XmAol",

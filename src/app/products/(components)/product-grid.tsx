@@ -33,7 +33,6 @@ export default function ProductGrid({ products }: ProductGridProps) {
           key={product.id}
           className="overflow-hidden rounded-lg bg-blue-900 bg-opacity-50 shadow-lg transition-transform hover:scale-105"
         >
-          {`Hero Image Source: ${product.heroimage}`}
           <Image
             src={product.heroimage}
             alt={product.name}

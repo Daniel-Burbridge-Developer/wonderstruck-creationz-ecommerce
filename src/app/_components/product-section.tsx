@@ -1,3 +1,4 @@
+import { Link } from "lucide-react";
 import { ProductItem } from "./product-item";
 
 interface Product {
