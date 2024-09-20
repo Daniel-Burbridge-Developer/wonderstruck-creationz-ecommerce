@@ -14,7 +14,7 @@ const ShippingPolicyPage = () => {
         </div>
 
         {/* Image Section */}
-        <div className="w-1/2 mt-8">
+        <div className="mt-8 w-1/2">
           <Image
             src="https://utfs.io/f/2YBx1bJMjIF3ljcn3aNNuVfXZ3weCGhtjiUPR8xvAT9I1zan"
             alt="Magical shipping journey"
@@ -43,7 +43,8 @@ const ShippingPolicyPage = () => {
 
         <h2 className="text-2xl font-semibold">International Shipping</h2>
         <p>
-          We currently do not support international shipping. We apologize for the inconvenience and hope to offer this service in the future.
+          We currently do not support international shipping. We apologize for
+          the inconvenience and hope to offer this service in the future.
         </p>
 
         <h2 className="text-2xl font-semibold">Shipping Costs</h2>
