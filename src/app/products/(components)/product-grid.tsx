@@ -58,17 +58,17 @@ export default function ProductGrid({ products }: ProductGridProps) {
           </div>
         </div>
       ))}
-      {products.length === 0 && (
+      {products.length === 0  && (
         <div className="col-span-full text-center text-gray-400">
           No products found.
         </div>
       )}
-      {[...Array(3)].map((_, index) => (
+      {/* {[...Array(3)].map((_, index) => (
         <Skeleton
           key={`skeleton-${index}`}
           className="h-[350px] w-full rounded-lg bg-blue-900 bg-opacity-50"
         />
-      ))}
+      ))} */}
     </div>
   );
 }

@@ -27,12 +27,19 @@ export default function DynamicProductGrid() {
     );
   }, [query, category]);
 
-  const totalPages = Math.ceil(filteredProducts.length / ITEMS_PER_PAGE);
+  const totalPages = Math.max(Math.ceil(filteredProducts.length / ITEMS_PER_PAGE), 1);
 
   const currentProducts = useMemo(() => {
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
     return filteredProducts.slice(startIndex, startIndex + ITEMS_PER_PAGE);
   }, [filteredProducts, currentPage]);
+
+  useEffect(() => {
+    // If the current page exceeds the total number of pages, reset it
+    if (currentPage > totalPages) {
+      setCurrentPage(totalPages);
+    }
+  }, [filteredProducts, currentPage, totalPages]);
 
   useEffect(() => {
     setCurrentPage(1);
@@ -41,11 +48,19 @@ export default function DynamicProductGrid() {
   return (
     <div className="flex flex-col gap-8">
       <ProductGrid products={currentProducts} />
-      <Pagination
-        currentPage={currentPage}
-        totalPages={totalPages}
-        onPageChange={setCurrentPage}
-      />
+      {filteredProducts.length > 0 ? (
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={(page) => {
+            if (page >= 1 && page <= totalPages) {
+              setCurrentPage(page);
+            }
+          }}
+        />
+      ) : (
+        <div></div>
+      )}
     </div>
   );
 }

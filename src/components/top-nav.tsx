@@ -30,7 +30,7 @@ export function TopNavComponent() {
     const mainElement = document.querySelector("main");
 
     const handleScroll = () => {
-      if (mainElement && mainElement.scrollTop > 500) {
+      if (mainElement && mainElement.scrollTop > 50) {
         setScrolled(true);
       } else {
         setScrolled(false);

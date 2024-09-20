@@ -5,8 +5,6 @@ import {
   Facebook,
   Instagram,
   Twitter,
-  ChevronUp,
-  ChevronDown,
 } from "lucide-react";
 import Link from "next/link";
 import { Input } from "@/components/ui/input";
@@ -51,18 +49,9 @@ export function ExpandableFooterComponent() {
       <div className="container mx-auto px-4">
         <div className="mb-4 flex items-center justify-between">
           <h2 className="text-xl font-bold">Wonderstruck Creationz</h2>
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={toggleExpansion}
-            aria-expanded={isExpanded}
-            aria-controls="footer-content"
-          >
-            {isExpanded ? <ChevronUp /> : <ChevronDown />}
             <span className="sr-only">
               {isExpanded ? "Collapse footer" : "Expand footer"}
             </span>
-          </Button>
         </div>
 
         <div
