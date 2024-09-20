@@ -1,6 +1,6 @@
 import ProductSection from "./product-section";
 
-const products = [
+export const products = [
   {
     id: "1",
     title: "Games Night",

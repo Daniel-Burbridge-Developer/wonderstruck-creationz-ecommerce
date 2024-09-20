@@ -72,7 +72,7 @@ export function TopNavComponent() {
               Products
             </Link>
             <Link
-              href="/aboutus"
+              href="about-us"
               className="text-white transition-colors hover:text-gray-300"
             >
               About
@@ -132,14 +132,18 @@ export function TopNavComponent() {
               </SheetContent>
             </Sheet>
 
-            {isSignedIn ? user.publicMetadata.role === "admin" ? (
-              <div className="flex gap-4">
+            {isSignedIn ? (
+              user.publicMetadata.role === "admin" ? (
+                <div className="flex gap-4">
+                  <UserButton />
+                  <Link href="/admin-dashboard" className="text-white">
+                    Admin Dashboard
+                  </Link>
+                </div>
+              ) : (
                 <UserButton />
-                <Link href="/admin-dashboard" className="text-white">
-                       Admin Dashboard
-                </Link>
-              </div>
-            ) : (<UserButton /> ): (
+              )
+            ) : (
               <SignInButton mode="modal">
                 <Button variant="secondary">Sign In</Button>
               </SignInButton>

@@ -84,7 +84,7 @@ export function ExpandableFooterComponent() {
               </p>
               <ul className="space-y-2 text-sm">
                 <li>
-                  <Link href="/aboutus" className="hover:underline">
+                  <Link href="about-us" className="hover:underline">
                     Learn More
                   </Link>
                 </li>

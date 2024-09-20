@@ -2,8 +2,9 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback } from "react";
+import { products } from "@/app/_components/product-showcase";
 
-const categories = ["Accessories", "Potions", "Books", "Clothing"];
+const categories = products.map((product) => product.title);
 
 export default function CategoryFilter() {
   const router = useRouter();
