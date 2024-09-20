@@ -48,7 +48,7 @@ export function TopNavComponent() {
 
   return (
     <nav
-      className={`fixed z-10 w-full transition-all duration-1000 ease-in-out ${scrolled ? "bg-black" : "bg-transparent"} h-16`}
+      className={`fixed z-10 w-full transition-all duration-1000 ease-in-out ${scrolled ? "bg-black" : "bg-black/30"} h-16`}
     >
       <div className="mx-auto h-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-full items-center justify-between">
